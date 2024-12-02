@@ -151,5 +151,23 @@
         "Baking"
       ]
     }
+  ],
+  "projects": [
+    {
+      "name": "Game Engine",
+      "summary": "Beginnings of a game engine written in C++. On temporary hiatus.",
+      "highlights": ["Game Engine", "C++"],
+      "startDate": "2022-05",
+      "endDate": "2022-10",
+      "url": "https://github.com/Swimotter/OtterEngine/"
+    },
+    {
+      "name": "Handwritten Text Classification",
+      "summary": "Simple program to train ML model to recognize handwritten text. Created for a high school Maker Faire.",
+      "highlights": ["Machine Learning", "Python"],
+      "startDate": "2022-01",
+      "endDate": "2022-01",
+      "url": "https://github.com/Swimotter/MachineLearning/"
+    }
   ]
 }
