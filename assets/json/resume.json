@@ -65,53 +65,25 @@
       "name": "Programming Languages",
       "level": "Proficient",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "C#",
-        "Python",
-        "Java",
-        "GDScript",
-        "GLSL",
-        "HLSL",
-        "C++",
-        "Objective C++"
-      ]
+      "keywords": ["C#", "Python", "Java", "GDScript", "GLSL", "HLSL", "C++", "Objective C++"]
     },
     {
       "name": "Technologies",
       "level": "Proficient",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Git",
-        "GitHub",
-        "Unity",
-        "Godot",
-        "ffmpeg",
-        "Blackmagic RAW",
-        "DaVinci Resolve"
-      ]
+      "keywords": ["Git", "GitHub", "Unity", "Godot", "ffmpeg", "Blackmagic RAW", "DaVinci Resolve"]
     },
     {
       "name": "Programming Libraries",
       "level": "Proficient",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "OpenCV",
-        "NumPy",
-        "Scikit",
-        "Matplotlib",
-        "PyTorch",
-        "JavaFX"
-      ]
+      "keywords": ["OpenCV", "NumPy", "Scikit", "Matplotlib", "PyTorch", "JavaFX"]
     },
     {
       "name": "Testing Libraries",
       "level": "Proficient",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Pytest",
-        "JUnit",
-        "GDUnit"
-      ]
+      "keywords": ["Pytest", "JUnit", "GDUnit"]
     }
   ],
   "languages": [
@@ -135,21 +107,12 @@
     {
       "name": "Computer Science",
       "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Artificial Intelligence (ML and DL)",
-        "Image Processing",
-        "Video Processing",
-        "Game Engines (physics and rendering)"
-      ]
+      "keywords": ["Artificial Intelligence (ML and DL)", "Image Processing", "Video Processing", "Game Engines (physics and rendering)"]
     },
     {
       "name": "Miscellaneous",
       "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Game Development",
-        "Cooking",
-        "Baking"
-      ]
+      "keywords": ["Game Development", "Cooking", "Baking"]
     }
   ],
   "projects": [
