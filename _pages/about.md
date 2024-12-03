@@ -12,7 +12,7 @@ profile:
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 ---
 
 Hello everyone! You will find some of the cool things that I've worked on and been a part of on this site. Many of these are the result of my schooling at Bucknell University, with some being personal works.
