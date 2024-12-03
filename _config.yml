@@ -50,7 +50,7 @@ navbar_fixed: true
 footer_fixed: true
 search_enabled: true
 socials_in_search: true
-bib_search: true
+bib_search: false
 
 # Dimensions
 max_width: 930px
@@ -224,15 +224,11 @@ kramdown:
 include: ["_pages"]
 exclude:
   - bin/
-  - CONTRIBUTING.md
-  - CUSTOMIZE.md
   - Dockerfile
   - docker-compose.yml
   - docker-compose-slim.yml
-  - FAQ.md
   - Gemfile
   - Gemfile.lock
-  - INSTALL.md
   - LICENSE
   - lighthouse_results/
   - package.json
