@@ -11,7 +11,7 @@ I began my research journey the summer before my first year of college as part o
 
 ### Current and Previous Projects:
 
-#### [KALMUS Color Toolkit](https://kamifirumu.scholar.bucknell.edu/):
+#### [KALMUS Color Toolkit](https://github.com/KALMUS-Color-Toolkit/KALMUS):
 
 Currently, I'm working with Professer Faden on a project he started with former student, and current PhD student at Harvard, Yida Chen. The goal of the project is to create "barcodes" from movies and films representative of the colors in them. Previously, we had a system to create barcodes from mathematical averages, but now I am working to create a system that will create barcodes more representative of what people actually see and remember from the films.
 <br><br>
