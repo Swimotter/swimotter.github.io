@@ -207,6 +207,8 @@ latest_posts:
 # Jekyll settings
 # -----------------------------------------------------------------------------
 
+destination: ../_site
+
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
