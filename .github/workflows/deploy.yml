@@ -3,18 +3,17 @@ name: Deploy site
 on:
   push:
     branches:
-      - master
       - main
     paths:
-      - "assets/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
+      - "main/assets/**"
+      - "main/**.bib"
+      - "main/**.html"
+      - "main/**.js"
+      - "main/**.liquid"
+      - "main/**/*.md"
+      - "main/**.yml"
+      - "main/Gemfile"
+      - "main/Gemfile.lock"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
@@ -23,25 +22,20 @@ on:
       - "!.github/workflows/lighthouse-badger.yml"
       - "!.github/workflows/prettier.yml"
       - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
       - "!README.md"
   pull_request:
     branches:
-      - master
       - main
     paths:
-      - "assets/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
+      - "main/assets/**"
+      - "main/**.bib"
+      - "main/**.html"
+      - "main/**.js"
+      - "main/**.liquid"
+      - "main/**/*.md"
+      - "main/**.yml"
+      - "main/Gemfile"
+      - "main/Gemfile.lock"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
@@ -50,10 +44,6 @@ on:
       - "!.github/workflows/lighthouse-badger.yml"
       - "!.github/workflows/prettier.yml"
       - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
       - "!README.md"
   workflow_dispatch:
 
@@ -81,13 +71,14 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           commitChange: false
-          valueFile: "_config.yml"
+          valueFile: "main/_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
+          cd main
           bundle exec jekyll build
       - name: Purge unused CSS 🧹
         run: |
@@ -97,4 +88,4 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: _site
+          folder: main/_site

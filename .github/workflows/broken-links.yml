@@ -3,15 +3,14 @@ name: Check for broken links
 on:
   push:
     branches:
-      - master
       - main
     paths:
-      - "assets/**"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
+      - "main/assets/**"
+      - "main/**.html"
+      - "main/**.js"
+      - "main/**.liquid"
+      - "main/**/*.md"
+      - "main/**.yml"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
       - "!.github/workflows/deploy-image.yml"
@@ -21,15 +20,14 @@ on:
       - "!lighthouse_results/**"
   pull_request:
     branches:
-      - master
       - main
     paths:
-      - "assets/**"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
+      - "main/assets/**"
+      - "main/**.html"
+      - "main/**.js"
+      - "main/**.liquid"
+      - "main/**/*.md"
+      - "main/**.yml"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
       - "!.github/workflows/deploy-image.yml"
@@ -49,4 +47,4 @@ jobs:
         with:
           fail: true
           # removed md files that include liquid tags
-          args: --user-agent 'curl/7.54' --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path _posts/2018-12-22-distill.md --exclude-path _posts/2023-04-24-videos.md --verbose --no-progress './**/*.md' './**/*.html'
+          args: --user-agent 'curl/7.54' --exclude-path README.md --exclude-path main/_pages/404.md --exclude-path main/_pages/blog.md --exclude-path main/_posts/2018-12-22-distill.md --exclude-path main/_posts/2023-04-24-videos.md --verbose --no-progress './main/**/*.md' './main/**/*.html'
