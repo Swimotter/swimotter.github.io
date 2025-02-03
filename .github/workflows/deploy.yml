@@ -77,9 +77,11 @@ jobs:
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade nbconvert
-          export JEKYLL_ENV=production
           cd main
+          export JEKYLL_ENV=production
           bundle exec jekyll build
+          cd ..
+          cp -r csci397 _site/
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss
