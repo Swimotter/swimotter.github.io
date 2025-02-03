@@ -81,7 +81,7 @@ jobs:
           export JEKYLL_ENV=production
           bundle exec jekyll build
           cd ..
-          cp -r csci397 _site/
+          cp -r csci379 _site/
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss
