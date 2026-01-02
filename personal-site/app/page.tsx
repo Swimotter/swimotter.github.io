@@ -1,0 +1,38 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Jackson (Swimotter) Rubiano",
+  description: "Personal site for Jackson (Swimotter) Rubiano",
+};
+
+export default function Home() {
+  return (
+    <main className="flex min-h-screen w-full flex-col items-center justify-between py-32 px-16 bg-white dark:bg-gray-800 sm:items-start">
+      <section className="mx-auto px-4 py-12 sm:px-6 flex flex-col md:flex-row items-start gap-8">
+        <div className="flex-1 text-left">
+          <p className="text-4xl mb-4 text-black dark:text-zinc-50">
+            Hello everyone! You will find some of the cool things that I’ve
+            worked on and been a part of on this site. Many of these are the
+            result of my schooling at Bucknell University, with some being
+            personal works.
+          </p>
+        </div>
+        <div className="flex flex-col items-end">
+          <Image
+            className="shadow-2xl rounded-md aspect-square"
+            src="/profile.png"
+            alt="Profile Picture"
+            width={250}
+            height={250}
+            priority
+          />
+          <p className="w-full text-black dark:text-zinc-50 text-2x1 text-left md:text-left max-w-sm">
+            Jackson (Swimotter) Rubiano<br></br>
+            Bucknell University
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
