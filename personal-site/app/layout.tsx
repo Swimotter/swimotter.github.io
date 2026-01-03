@@ -48,14 +48,17 @@ export default function RootLayout({
   const pathname = usePathname();
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="min-h-screen flex flex-col w-full">
-          <header className="sticky top-0 z-50 bg-gray-900">
+          <header className="sticky top-0 z-50 bg-light1 dark:bg-dark1">
             <div className="flex items-center w-full mx-auto px-4 py-3 sm:px-6">
-              <Link href="/" className="font-extrabold text-white">
+              <Link
+                href="/"
+                className="font-extrabold text-light3 dark:text-dark3"
+              >
                 Jackson (Swimotter) Rubiano
               </Link>
               <nav className="flex items-center gap-4 ml-auto">
@@ -70,7 +73,7 @@ export default function RootLayout({
                         ${
                           isActive
                             ? "text-cyan-600 font-medium border-blue-600"
-                            : "text-gray-200 hover:text-cyan-800 border-transparent"
+                            : "text-light3 dark:text-dark3 hover:text-cyan-800 border-transparent"
                         }
                       `}
                     >
@@ -84,7 +87,7 @@ export default function RootLayout({
 
           <main className="flex flex-1">{children}</main>
 
-          <footer className="bottom-0 z-50 bg-gray-950 max-h-17.5 overflow-hidden">
+          <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden bg-light1 dark:bg-dark1">
             <div className="flex items-center w-full mx-auto px-4 py-3 sm:px-6">
               <nav className="w-full flex items-center justify-center gap-4">
                 {extLinks.map((item) => {
@@ -96,7 +99,7 @@ export default function RootLayout({
                       rel="noopener noreferrer"
                     >
                       <Image
-                        className={`${true ? "invert" : ""}`}
+                        className="dark:invert"
                         src={`/${item.name}.svg`}
                         alt={`${item.alt}`}
                         width={50}
