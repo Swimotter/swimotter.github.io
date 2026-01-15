@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex w-full flex-col items-center justify-between py-8 px-8 bg-light2 dark:bg-dark2">
+    <div className="flex flex-col items-center justify-between">
       <section className="mx-auto px-4 py-12 sm:px-6 flex flex-col md:flex-row items-start gap-8">
         <div className="flex-1 text-left">
           <p className="text-2xl mb-4 text-light3 dark:text-dark3">
@@ -34,6 +34,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
