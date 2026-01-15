@@ -70,35 +70,37 @@ export default function RootLayout({
         >
           <div className="min-h-screen flex flex-col w-full">
             <header className="sticky top-0 z-50 bg-light1 dark:bg-dark1">
-              <div className="flex items-center w-full mx-auto px-4 py-3 sm:px-6">
+              <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3 sm:px-6">
                 <Link
                   href="/"
                   className="font-extrabold text-light3 dark:text-dark3"
                 >
                   Jackson (Swimotter) Rubiano
                 </Link>
-                <nav className="flex items-center gap-4 ml-auto">
-                  {navItems.map((item) => {
-                    const isActive = pathname === item.href;
+                <div className="flex items-center gap-4 ml-auto min-w-[269.87px]">
+                  <nav className="flex items-center gap-4">
+                    {navItems.map((item) => {
+                      const isActive = pathname === item.href;
 
-                    return (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={`flex items-center transition-colors
-                          ${
-                            isActive
-                              ? "text-cyan-600 font-medium border-blue-600"
-                              : "text-light3 dark:text-dark3 hover:text-cyan-800 border-transparent"
-                          }
-                        `}
-                      >
-                        {item.name}
-                      </Link>
-                    );
-                  })}
-                </nav>
-                <ThemeSwitcher></ThemeSwitcher>
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className={`flex items-center transition-colors
+                            ${
+                              isActive
+                                ? "text-cyan-600 font-medium border-blue-600"
+                                : "text-light3 dark:text-dark3 hover:text-cyan-800 border-transparent"
+                            }
+                          `}
+                        >
+                          {item.name}
+                        </Link>
+                      );
+                    })}
+                  </nav>
+                  <ThemeSwitcher />
+                </div>
               </div>
             </header>
 

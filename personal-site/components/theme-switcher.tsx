@@ -29,7 +29,7 @@ const ThemeSwitch = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="ml-4 p-2 rounded-full bg-light2 dark:bg-dark2 hover:ring-2 ring-gray-500 transition-all"
+      className="p-2 rounded-full bg-light2 dark:bg-dark2 hover:ring-2 ring-gray-500 transition-all"
       aria-label="Toggle theme"
       suppressHydrationWarning
     >
