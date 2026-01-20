@@ -104,7 +104,7 @@ export default function RootLayout({
               </div>
             </header>
 
-            <main className="w-full flex flex-1 py-8 px-8 bg-light2 dark:bg-dark2">
+            <main className="w-full flex flex-1 justify-center py-8 px-8 bg-light2 dark:bg-dark2">
               {children}
             </main>
 
