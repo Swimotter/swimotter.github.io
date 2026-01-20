@@ -19,7 +19,7 @@ const projects = [
 
 export default function Home() {
   return (
-    <section className="w-full grid grid-cols-[repeat(auto-fit,minmax(0,240))] gap-4 justify-center items-start">
+    <section className="w-4/5 grid grid-cols-[repeat(auto-fit,minmax(0,240))] gap-4 justify-center items-start">
       {projects.map((item) => {
         return (
           <Project
