@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import Project from "@/components/project";
+import ProjectIcon from "@/components/project-icon";
 import FilmRoll from "@/public/projects/paper-films/film-roll.jpg";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function Home() {
         .sort((a, b) => a.priority - b.priority)
         .map((item) => {
           return (
-            <Project
+            <ProjectIcon
               key={item.page}
               title={item.title}
               description={item.description}
