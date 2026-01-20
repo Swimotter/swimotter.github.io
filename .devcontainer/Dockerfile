@@ -7,6 +7,9 @@ RUN apt-get update && \
     apt-get install -y gnupg2 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get install -y git-lfs
+
 
 COPY requirements-dev.txt /tmp/pip-tmp/
 RUN pip install --break-system-packages -r /tmp/pip-tmp/requirements-dev.txt && \
