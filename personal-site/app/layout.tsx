@@ -8,9 +8,9 @@ import { ThemeProvider } from "next-themes";
 
 import ThemeSwitcher from "@/components/theme-switcher";
 import "@/app/globals.css";
-import Mail from "@/public/mail.svg";
-import Github from "@/public/github.svg";
-import LinkedIn from "@/public/linkedin.svg";
+import Mail from "@/public/common/mail.svg";
+import Github from "@/public/common/github.svg";
+import LinkedIn from "@/public/common/linkedin.svg";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

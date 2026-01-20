@@ -5,8 +5,8 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import "@/app/globals.css";
 
-import Sun from "@/public/sun.svg";
-import Moon from "@/public/moon.svg";
+import Sun from "@/public/common/sun.svg";
+import Moon from "@/public/common/moon.svg";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);

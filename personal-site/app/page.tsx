@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import Profile from "@/public/about/profile.png";
+
 export const metadata: Metadata = {
   title: "Jackson (Swimotter) Rubiano",
   description: "Personal site for Jackson (Swimotter) Rubiano",
@@ -21,7 +23,7 @@ export default function Home() {
         <div className="flex flex-col items-end">
           <Image
             className="shadow-2xl rounded-md aspect-square"
-            src="/profile.png"
+            src={Profile}
             alt="Profile Picture"
             width={250}
             height={250}

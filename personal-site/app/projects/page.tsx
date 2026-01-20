@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import Project from "@/components/project";
-import FilmRoll from "@/public/film-roll.jpg";
+import FilmRoll from "@/public/projects/paper-films/film-roll.jpg";
 
 export const metadata: Metadata = {
   title: "Projects | Jackson (Swimotter) Rubiano",
