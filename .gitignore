@@ -6,4 +6,7 @@
 *.fdb_latexmk
 *.fls
 *.log
+*.tex
 *.pdf
+
+node_modules/

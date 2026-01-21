@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "ejs": "^4.0.1",
+    "yaml": "^2.8.2"
+  },
+  "scripts": {
+    "build-resume": "node scripts/gen-resume.js && bash scripts/build-resume.sh"
+  }
+}
