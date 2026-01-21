@@ -1,2 +1,9 @@
 .venv/
 .vscode/
+
+# Generated resume files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
