@@ -68,7 +68,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="w-full min-h-screen flex flex-col bg-light1 dark:bg-dark1 text-light3 dark:text-dark3">
-            <header className="sticky top-0 z-50">
+            <header className="sticky top-0 z-50 bg-light1 dark:bg-dark1">
               <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3 sm:px-6">
                 <Link href="/" className="font-extrabold">
                   Jackson (Swimotter) Rubiano
