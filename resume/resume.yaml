@@ -1,0 +1,122 @@
+name: Jackson Rubiano
+contact:
+  email: jtr029@bucknell.edu
+  linkedin: linkedin.com/in/jackson-Rubiano
+  github: github.com/swimotter
+  website: jacksonrubiano.com
+
+education:
+  - school: Bucknell University
+    degree: Bachelor of Science in Computer Science & Engineering
+    graduation: Expected May 2027
+    gpa: 3.72
+    egpa: 3.91
+    awards:
+      - Dean's List
+    coursework:
+      - Artificial Intelligence
+      - Systems Programming
+      - Algorithm Design
+      - Computer Networks
+      - Software Engineering
+
+experience:
+  - company: KALMUS Color Analysis Program
+    location: Bucknell University
+    title: Software Developer
+    start_date: August 2024
+    end_date: Present
+    bullets:
+      - Enhanced and maintained a Python program for film color analysis using NumPy, SciPy, and OpenCV
+      - Created a SQL database for hosting information provided to a front-end web interface
+      - Designed a pipeline to reduce manual steps and improve usability for non-technical researchers
+      - Converted faculty research requirements into usable tools
+
+  - company: The Japanese Paper Film Project
+    location: Bucknell University
+    title: Software Developer
+    start_date: June 2023
+    end_date: Present
+    bullets:
+      - Designed a C++ tool using OpenCV and the Blackmagic RAW SDK to extract unique frames from damaged film roll scans, reducing turnaround from 10-15+ hours to 2-4 hours
+      - Developed a Lua plugin for DaVinci Resolve, allowing film editors to extract frames from selected films
+      - Created robust filtering systems to account for varying quality, style, and inconsistent recording conditions
+      - Prototyped and evaluated ViT and ResNet50-based models for frame selection, comparing performance against classical computer-vision filtering
+      - Presented project at research symposiums and film screenings
+
+projects:
+  - name: VR Minecraft
+    location: Bucknell University
+    title: Developer
+    start_date: April 2025
+    end_date: May 2025
+    bullets:
+      - Collaborated in an Agile team to create a Minecraft-like VR game using WebGPU, WebXR, and JavaScript
+      - Implemented AABB collision detection and resolution and enjoyed optimizing game to achieve real-time interactivity
+      - Addressed difficulties integrating WebGPU for VR while maintaining near real-time rendering
+
+  - name: Deep Learning for ALL Blood Cell Classification
+    location: Bucknell University
+    title:
+      - Developer
+      - Author
+    start_date: March 2025
+    end_date: May 2025
+    bullets:
+      - Built a homebrew CNN model and ResNet50 transfer learning model for classifying Acute Lymphoblastic Leukemia (ALL) cell types from peripheral blood smear (PBS) images
+      - Performed exploratory data analysis on PBS images to identify class imbalances and segmentation artifacts to guide model architecture and preprocessing decisions
+      - Implemented image segmentation pipeline to isolate relevant image regions before training models
+      - Interpreted model performance using confusion matrices, class-specific error analysis, and epoch vs. accuracy curves
+      - Documented findings and experimental methodologies in a research-style report
+      - Transfer learning model achieved 98% validation accuracy vs. 95% for homegrown CNN
+
+  - name: Roguelite Game
+    location: Bucknell University
+    title:
+      - Scrum Master
+      - Developer
+    start_date: November 2023
+    end_date: December 2023
+    bullets:
+      - Built a roguelite game in Java using JavaFX with a small team following Agile methodologies
+      - Designed the entity-component-system architecture and enjoyed writing core system modules
+      - Wrote unit/integration tests using JUnit to ensure proper functionality
+      - Organized daily Scrum meetings, worked to resolve obstacles, and maintained team workflow
+
+skills:
+  languages:
+    - C++
+    - Objective C++
+    - C#
+    - Python
+    - Java
+    - JavaScript
+    - WGSL
+
+  technologies:
+    - ResNet50
+    - ViT
+    - Git
+    - Unity
+    - Godot
+    - ffmpeg
+    - Blackmagic RAW SDK
+    - .NET
+    - SQL
+
+  libraries:
+    - Tensorflow
+    - PyTorch
+    - Pandas
+    - Seaborn
+    - OpenCV
+    - NumPy
+    - SciPy
+    - Scikit-Learn
+    - Matplotlib
+    - JavaFX
+
+  testing:
+    - Pytest
+    - JUnit
+    - GDUnit
