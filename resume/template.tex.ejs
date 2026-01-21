@@ -202,6 +202,14 @@
   <% }) %>
 
 
+  <% function formatTitle(title) {
+    if (Array.isArray(title)) {
+      return latexEscape(title.join(", "));
+    } else {
+      return latexEscape(title);
+    }
+  } %>
+
   %------------%
   % Experience %
   %------------%
@@ -209,7 +217,7 @@
   \section{Work Experience}
   <% experience.forEach(job => { %>
     \headingBf{<%- latexEscape(job.company) %> \texttt{|} <%- latexEscape(job.location) %>}{<%- latexEscape(job.start_date) %> -- <%- latexEscape(job.end_date) %>}
-    \headingIt{<%- latexEscape(job.title) %>}{}
+    \headingIt{<%- formatTitle(job.title) %>}{}
     \begin{resume_list}
       <% job.bullets.forEach(bullet => { %>
         \item <%- latexEscape(bullet) %>
@@ -225,7 +233,7 @@
   \section{Projects and Activities}
   <% projects.forEach(project => { %>
     \headingBf{<%- latexEscape(project.name) %> \texttt{|} <%- latexEscape(project.location) %>}{<%- latexEscape(project.start_date) %> -- <%- latexEscape(project.end_date) %>}
-    \headingIt{<%- latexEscape(project.title) %>}{}
+    \headingIt{<%- formatTitle(project.title) %>}{}
     \begin{resume_list}
       <% project.bullets.forEach(bullet => { %>
         \item <%- latexEscape(bullet) %>
