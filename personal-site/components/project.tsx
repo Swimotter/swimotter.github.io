@@ -8,12 +8,12 @@ export default function Project({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-4/5">
+    <article className="w-full">
       <header className="mb-6">
         <h1 className="text-5xl mb-2">{title}</h1>
         <div>{description}</div>
       </header>
       <article>{children}</article>
-    </div>
+    </article>
   );
 }

@@ -105,7 +105,7 @@ export default function RootLayout({
             </header>
 
             <main className="w-full flex flex-1 justify-center py-8 px-8 bg-light2 dark:bg-dark2">
-              {children}
+              <main className="w-4/5">{children}</main>
             </main>
 
             <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden bg-light1 dark:bg-dark1">
