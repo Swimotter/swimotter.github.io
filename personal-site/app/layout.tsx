@@ -60,7 +60,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"
@@ -68,13 +67,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen flex flex-col w-full">
-            <header className="sticky top-0 z-50 bg-light1 dark:bg-dark1">
+          <div className="w-full min-h-screen flex flex-col bg-light1 dark:bg-dark1 text-light3 dark:text-dark3">
+            <header className="sticky top-0 z-50">
               <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3 sm:px-6">
-                <Link
-                  href="/"
-                  className="font-extrabold text-light3 dark:text-dark3"
-                >
+                <Link href="/" className="font-extrabold">
                   Jackson (Swimotter) Rubiano
                 </Link>
                 <div className="flex items-center gap-4 ml-auto min-w-[269.87px]">
@@ -90,7 +86,7 @@ export default function RootLayout({
                             ${
                               isActive
                                 ? "text-cyan-600 font-medium border-blue-600"
-                                : "text-light3 dark:text-dark3 hover:text-cyan-800 border-transparent"
+                                : "hover:text-cyan-800 border-transparent"
                             }
                           `}
                         >
@@ -104,11 +100,11 @@ export default function RootLayout({
               </div>
             </header>
 
-            <main className="w-full flex flex-1 justify-center py-8 px-8 bg-light2 dark:bg-dark2">
+            <div className="w-full flex flex-1 justify-center py-8 px-8 bg-light2 dark:bg-dark2">
               <main className="w-4/5">{children}</main>
-            </main>
+            </div>
 
-            <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden bg-light1 dark:bg-dark1">
+            <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden">
               <div className="flex items-center w-full mx-auto px-4 py-3 sm:px-6">
                 <nav className="w-full flex items-center justify-center gap-4">
                   {extLinks.map((item) => {

@@ -45,108 +45,115 @@ export default function Home() {
         </>
       }
     >
-      <div className="flex flex-row gap-6 mb-6 items-start">
-        <div className="flex flex-col gap-2 w-1/2 items-center">
-          <figure className="relative">
-            <Image
-              className="object-contain shadow-2xl rounded-md"
-              src={FilmRoll}
-              alt="Film roll"
-              priority
-            />
-          </figure>
-          <figcaption>A film roll depicting the title card.</figcaption>
-        </div>
-        <div className="flex flex-col gap-2 w-1/2 items-center">
-          <figure className="relative">
-            <Image
-              className="object-contain shadow-2xl rounded-md"
-              src={FilmStripBack}
-              alt="Back of a film strip"
-              priority
-            />
-          </figure>
-          <figcaption>
+      <section className="flex flex-row gap-2 items-start">
+        <figure className="relative text-center w-1/2">
+          <Image
+            className="object-contain shadow-2xl rounded-md"
+            src={FilmRoll}
+            alt="Film roll"
+            priority
+          />
+          <figcaption className="mt-2">
+            A film roll depicting the title card.
+          </figcaption>
+        </figure>
+        <figure className="relative text-center w-1/2">
+          <Image
+            className="object-contain shadow-2xl rounded-md"
+            src={FilmStripBack}
+            alt="Back of a film strip"
+            priority
+          />
+          <figcaption className="mt-2">
             The back of the rolls contain information about the film.
           </figcaption>
-        </div>
-      </div>
-      <div className="flex flex-row gap-4 mb-6 items-start">
-        <div className="max-w-1/2">
+        </figure>
+      </section>
+      <section className="mt-6">
+        <figure className="flex flex-row gap-2">
           <Image
-            className="h-auto shadow-2xl rounded-md"
+            className="w-1/2 h-auto shadow-2xl rounded-md"
             src={Scanner}
             alt="Film scanner"
             priority
           />
-        </div>
-        <div className="flex-1">
-          <p className="mb-3">
-            The first part of the preservation process begins with the scanning
-            of films. Once the film is placed in the rig, we record a few
-            seconds with a color calibration chart so that our film editors can
-            later color grade the resulting films. After this, it&apos;s simply
-            a matter of waiting until the entire roll is scanned.
-          </p>
-          <p className="mb-3">
-            We record all of our films in 6K at 60fps with a shutter speed of
-            1/480th of a second to ensure that we can get the most accurate
-            color data without worrying about any motion blur.
-          </p>
-          <p className="mb-3">
-            Once the film data has been recorded it then needs to be converted
-            back into a watchable film. To accomplish this, we pass films
-            through custom software that I designed, based upon the framework
-            set forth by Yuhan Chen (via a plugin created for DaVinci Resolve).
-            This process overcomes the inconsistencies in the films&apos; frame
-            size, perforation locations, and condition.
-          </p>
-          <p>
-            We record all of our films in 6K at 60fps with a shutter speed of
-            1/480th of a second to ensure that we can get the most accurate
-            color data without worrying about any motion blur.
-          </p>
-        </div>
-      </div>
-      <p className="mb-6">
-        To accomplish this, the software uses a combination of filters and
-        rankings to determine what is a &apos;good frame&apos;. The first thing
-        that the software attempts to look for are perforations (assuming that
-        the film has them). All the films are recorded with a specific color in
-        the background that is not present in any films to our knowledge; with
-        this, we can filter out any frames that don&apos;t contain perforations
-        on both the top and bottom of the frame. From here though, things get
-        mildly trickier&mdash;due to the often poor condition of the films,
-        tears can occasionally be misidentified as perforations. To reduce the
-        occurrences of these in the cleaned videos, we get the image gradients
-        of all remaining frames to identify horizontal lines. Based upon these,
-        we score each image on how much it matches what we expect a frame line
-        to look like. Then, all these frames can be extracted and have some
-        light stabilization applied before being sent to our film editors who
-        add title cards, intertitles, subtitles, and do the final color grading.
-      </p>
-      <div className="flex flex-row gap-4 mb-6 items-start">
-        <Image
-          className="flex-2 shadow-2xl rounded-md"
-          src={Software}
-          alt="Film scanner"
-          priority
-        />
-      </div>
-      <div>
-        <figure>
+          <figcaption className="flex-1">
+            <p>
+              The first part of the preservation process begins with the
+              scanning of films. Once the film is placed in the rig, we record a
+              few seconds with a color calibration chart so that our film
+              editors can later color grade the resulting films. After this,
+              it&apos;s simply a matter of waiting until the entire roll is
+              scanned.
+            </p>
+            <p className="mt-2">
+              We record all of our films in 6K at 60fps with a shutter speed of
+              1/480th of a second to ensure that we can get the most accurate
+              color data without worrying about any motion blur.
+            </p>
+            <p className="mt-2">
+              Once the film data has been recorded it then needs to be converted
+              back into a watchable film. To accomplish this, we pass films
+              through custom software that I designed, based upon the framework
+              set forth by Yuhan Chen (via a plugin created for DaVinci
+              Resolve). This process overcomes the inconsistencies in the
+              films&apos; frame size, perforation locations, and condition.
+            </p>
+            <p>
+              We record all of our films in 6K at 60fps with a shutter speed of
+              1/480th of a second to ensure that we can get the most accurate
+              color data without worrying about any motion blur.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section className="mt-6">
+        <figure className="flex flex-col gap-2">
+          <figcaption>
+            To accomplish this, the software uses a combination of filters and
+            rankings to determine what is a &apos;good frame&apos;. The first
+            thing that the software attempts to look for are perforations
+            (assuming that the film has them). All the films are recorded with a
+            specific color in the background that is not present in any films to
+            our knowledge; with this, we can filter out any frames that
+            don&apos;t contain perforations on both the top and bottom of the
+            frame. From here though, things get mildly trickier&mdash;due to the
+            often poor condition of the films, tears can occasionally be
+            misidentified as perforations. To reduce the occurrences of these in
+            the cleaned videos, we get the image gradients of all remaining
+            frames to identify horizontal lines. Based upon these, we score each
+            image on how much it matches what we expect a frame line to look
+            like. Then, all these frames can be extracted and have some light
+            stabilization applied before being sent to our film editors who add
+            title cards, intertitles, subtitles, and do the final color grading.
+          </figcaption>
           <Image
-            className="object-contain shadow-2xl rounded-md mb-2"
+            className="w-full h-auto shadow-2xl rounded-md"
+            src={Software}
+            alt="Film scanner"
+            priority
+          />
+        </figure>
+      </section>
+      <section className="mt-6">
+        <figure className="flex flex-col gap-2">
+          <figcaption>
+            Throughout my time working on this project, I&apos;ve had the
+            amazing opportunity to meet and work with many wonderful, smart,
+            witty, and fun people; I will ever be grateful for this experience,
+            the knowledge I gained, and the friends made along the way. While I
+            don&apos;t have a photo with everyone involved, these are some of
+            the people with whom I worked very closely my first year on the
+            project.
+          </figcaption>
+          <Image
+            className="w-full h-auto shadow-2xl rounded-md"
             src={Team}
             alt="The team"
             priority
           />
         </figure>
-        <figcaption className="text-center">
-          Some of the amazing people that I&apos;ve had the honor to work with
-          throughout the course of this project.
-        </figcaption>
-      </div>
+      </section>
     </Project>
   );
 }

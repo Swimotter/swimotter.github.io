@@ -9,11 +9,11 @@ export default function Project({
 }>) {
   return (
     <article className="w-full">
-      <header className="mb-6">
-        <h1 className="text-5xl mb-2">{title}</h1>
-        <div>{description}</div>
+      <header>
+        <h1 className="text-5xl">{title}</h1>
+        <section className="mt-2">{description}</section>
       </header>
-      <article>{children}</article>
+      <section className="mt-6">{children}</section>
     </article>
   );
 }

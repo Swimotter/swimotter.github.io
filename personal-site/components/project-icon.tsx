@@ -14,14 +14,16 @@ export default function ProjectIcon({
   page: string;
 }>) {
   return (
-    <Link href={page} className="max-w-60 rounded-sm bg-light1 dark:bg-dark1">
-      <Image className="rounded-tl-sm rounded-tr-sm" src={img} alt={title} />
-      <div className="p-5">
-        <h2 className="text-3xl">{title}</h2>
-        {description && (
-          <p className="mt-3 font-normal text-sm">{description}</p>
-        )}
-      </div>
-    </Link>
+    <section className="max-w-60 rounded-sm bg-light1 dark:bg-dark1">
+      <Link href={page}>
+        <Image className="rounded-tl-sm rounded-tr-sm" src={img} alt={title} />
+        <div className="p-4">
+          <h2 className="text-3xl">{title}</h2>
+          {description && (
+            <p className="mt-4 font-normal text-sm">{description}</p>
+          )}
+        </div>
+      </Link>
+    </section>
   );
 }
