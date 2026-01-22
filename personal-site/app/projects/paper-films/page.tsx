@@ -99,11 +99,6 @@ export default function Home() {
               Resolve). This process overcomes the inconsistencies in the
               films&apos; frame size, perforation locations, and condition.
             </p>
-            <p>
-              We record all of our films in 6K at 60fps with a shutter speed of
-              1/480th of a second to ensure that we can get the most accurate
-              color data without worrying about any motion blur.
-            </p>
           </figcaption>
         </figure>
       </section>

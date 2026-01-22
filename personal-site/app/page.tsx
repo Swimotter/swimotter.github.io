@@ -29,7 +29,7 @@ export default function Home() {
             height={250}
             priority
           />
-          <figcaption className="w-full text-left md:text-left max-w-sm">
+          <figcaption className="w-full text-left max-w-sm">
             Jackson (Swimotter) Rubiano
             <br />
             Bucknell University
