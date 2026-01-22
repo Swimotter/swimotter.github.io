@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 
 import PDF from "@/public/resume/pdf.svg";
@@ -17,6 +16,7 @@ export const metadata: Metadata = {
   description: "Jackson (Swimotter) Rubiano's Resume",
 };
 
+// FIXME: Page doesn't scroll to top if loading from a page that is scrolled down
 export default function Home() {
   const resume = getResume();
 
