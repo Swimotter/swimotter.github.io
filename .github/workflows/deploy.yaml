@@ -19,9 +19,8 @@ jobs:
         run: npm ci
 
       - name: Install Site Dependencies
-        run: |
-          cd personal-site
-          npm ci
+        run: npm ci
+        working-directory: personal-site
 
       - name: Install LaTeX
         run: |
@@ -34,22 +33,15 @@ jobs:
             texlive-fonts-extra \
             latexmk
 
-      - name: Cache LaTeX packages
-        uses: actions/cache@v5
-        with:
-          path: /var/cache/apt
-          key: ${{ runner.os }}-apt-${{ hashFiles("**/package-lock.json") }}
+      - name: Build Resume
+        run: npm run build-resume
 
-      - name: Build & Export
-        run: |
-          npm run build-resume
-          cd personal-site
-          npm run build
+      - name: Build Site
+        run: npm run build
+        working-directory: personal-site
 
       - name: Disable Jekyll
-        run: |
-          cd personal-site/out
-          touch .nojekyll
+        run: touch personal-site/out/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
