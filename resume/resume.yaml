@@ -31,6 +31,7 @@ experience:
       - Created a SQL database for hosting information provided to a front-end web interface
       - Designed a pipeline to reduce manual steps and improve usability for non-technical researchers
       - Converted faculty research requirements into usable tools
+    link: https://github.com/KALMUS-Color-Toolkit/KALMUS/
 
   - company: The Japanese Paper Film Project
     location: Bucknell University
@@ -43,6 +44,7 @@ experience:
       - Created robust filtering systems to account for varying quality, style, and inconsistent recording conditions
       - Prototyped and evaluated ViT and ResNet50-based models for frame selection, comparing performance against classical computer-vision filtering
       - Presented project at research symposiums and film screenings
+    link: https://kamifirumu.scholar.bucknell.edu/
 
 projects:
   - name: VR Minecraft
@@ -54,6 +56,7 @@ projects:
       - Collaborated in an Agile team to create a Minecraft-like VR game using WebGPU, WebXR, and JavaScript
       - Implemented AABB collision detection and resolution and enjoyed optimizing game to achieve real-time interactivity
       - Addressed difficulties integrating WebGPU for VR while maintaining near real-time rendering
+    link: https://github.com/tj-free/VRCraft.github.io
 
   - name: Deep Learning for ALL Blood Cell Classification
     location: Bucknell University
