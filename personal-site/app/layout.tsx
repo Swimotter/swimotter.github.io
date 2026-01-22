@@ -103,7 +103,7 @@ export default function RootLayout({
             </header>
 
             <div className="w-full flex flex-1 justify-center p-8 bg-light2 dark:bg-dark2">
-              <main className="w-full md:w-4/5 lg:w-2/3">{children}</main>
+              <main className="w-full md:w-4/5 xl:w-2/3">{children}</main>
             </div>
 
             <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden">

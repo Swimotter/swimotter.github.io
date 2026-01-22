@@ -95,7 +95,7 @@ export default function Home() {
             </p>
           </figcaption>
           <Image
-            className="w-full sm:w-1/2 h-auto object-contain shadow-2xl rounded-md order-last sm:order-first"
+            className="w-full sm:w-1/2 lg:w-7/12 xl:w-1/2 2xl:w-1/3 h-auto object-contain shadow-2xl rounded-md order-last sm:order-first"
             src={Scanner}
             alt="Film scanner"
             priority
