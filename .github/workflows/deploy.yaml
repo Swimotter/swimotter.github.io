@@ -46,6 +46,11 @@ jobs:
           cd personal-site
           npm run build
 
+      - name: Disable Jekyll
+        run: |
+          cd personal-site/out
+          touch .nojekyll
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
