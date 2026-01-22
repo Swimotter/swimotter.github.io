@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 });
 
 const navItems = [
-  { name: "Research", href: "/research" },
+  // { name: "Research", href: "/research" },
   { name: "Projects", href: "/projects" },
   { name: "Resume", href: "/resume" },
 ];
