@@ -74,7 +74,7 @@ export default function RootLayout({
                 <Link href="/" className="font-extrabold">
                   Jackson (Swimotter) Rubiano
                 </Link>
-                <div className="flex items-center gap-4 ml-auto min-w-[269.87px]">
+                <div className="flex items-center gap-4 ml-auto justify-end">
                   <nav className="flex items-center gap-4">
                     {navItems.map((item) => {
                       const isActive = pathname === item.href;
