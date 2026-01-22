@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div className="w-full flex flex-row">
-      <div className="w-1/4">
+      <div className="hidden sm:block sm:w-1/4">
         <nav className="sticky top-24 flex flex-col text-xs">
           <ul className="flex flex-col">
             {Object.keys(resume).map((section) => {
@@ -42,7 +42,7 @@ export default function Home() {
           </ul>
         </nav>
       </div>
-      <div className="w-3/4">
+      <div className="w-full sm:w-3/4">
         <article>
           <header className="flex flex-row items-center">
             <h1 className="text-4xl">Resume</h1>
@@ -140,7 +140,7 @@ function renderBasic(k: string, v: string) {
 function renderBasics(basics: BasicConfig) {
   return (
     <>
-      <dl className="grid grid-cols-2 gap-4">
+      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {Object.entries(basics).map(([k, v]) => (
           <div key={k}>
             <dt className="font-medium capitalize">{k}</dt>
@@ -295,7 +295,7 @@ function renderSkillCategory(name: string, items?: string[]) {
 function renderSkills(skills: SkillConfig) {
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {renderSkillCategory("languages", skills.languages)}
         {renderSkillCategory("technologies", skills.technologies)}
         {renderSkillCategory("libraries", skills.libraries)}
