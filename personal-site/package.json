@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build-resume": "node ../scripts/gen-resume.js && bash ../scripts/build-resume.sh",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
