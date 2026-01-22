@@ -12,8 +12,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Install npm dependencies
+      - name: Install Root Dependencies
         run: npm ci
+
+      - name: Install Site Dependencies
+        run: |
+          cd personal-site
+          npm ci
 
       - name: Install LaTeX
         run: |
@@ -27,7 +32,7 @@ jobs:
             latexmk
 
       - name: Cache LaTeX packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /var/cache/apt
           key: ${{ runner.os }}-apt-${{ hashFiles('**/package-lock.json') }}
