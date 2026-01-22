@@ -13,6 +13,18 @@
   --color-light3: var(--color-black);
 }
 
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-height: 700px) {
+  .hide-on-short {
+    display: none;
+  }
+}
+
 body {
   background: var(--color-light-2);
   color: var(--color-light-3);

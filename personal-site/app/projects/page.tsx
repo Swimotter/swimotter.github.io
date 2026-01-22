@@ -23,12 +23,27 @@ const projects = [
 
 export default function Home() {
   return (
-    <section className="w-full grid grid-cols-[repeat(auto-fit,minmax(0,240))] gap-4 justify-center items-start">
+    <section
+      className="
+        w-full
+        flex gap-4 overflow-x-auto
+        snap-x snap-mandatory
+        scroll-smooth
+        scrollbar-hidden
+        touch-pan-x
+        px-[calc(50vw-120px)]
+        sm:px-0
+        sm:touch-pan-y
+        sm:grid sm:grid-cols-[repeat(auto-fit,minmax(0,240px))]
+        sm:overflow-visible sm:justify-center
+      "
+    >
       {projects
         .sort((a, b) => a.priority - b.priority)
         .map((item) => {
           return (
             <ProjectIcon
+              className="min-w-60 snap-center"
               key={item.page}
               title={item.title}
               description={item.description}

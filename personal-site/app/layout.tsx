@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ThemeProvider } from "next-themes";
 
-import ThemeSwitcher from "@/components/theme-switcher";
+import ThemeSwitch from "@/components/theme-switcher";
 import "@/app/globals.css";
 import Mail from "@/public/common/mail.svg";
 import Github from "@/public/common/github.svg";
@@ -70,9 +70,10 @@ export default function RootLayout({
         >
           <div className="w-full min-h-screen flex flex-col bg-light1 dark:bg-dark1 text-light3 dark:text-dark3">
             <header className="sticky top-0 z-50 bg-light1 dark:bg-dark1">
-              <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3 sm:px-6">
+              <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3">
                 <Link href="/" className="font-extrabold">
-                  Jackson (Swimotter) Rubiano
+                  Jackson <span className="hidden sm:inline">(Swimotter)</span>{" "}
+                  Rubiano
                 </Link>
                 <div className="flex items-center gap-4 ml-auto justify-end">
                   <nav className="flex items-center gap-4">
@@ -96,17 +97,17 @@ export default function RootLayout({
                       );
                     })}
                   </nav>
-                  <ThemeSwitcher />
+                  <ThemeSwitch />
                 </div>
               </div>
             </header>
 
-            <div className="w-full flex flex-1 justify-center py-8 px-8 bg-light2 dark:bg-dark2">
-              <main className="w-4/5">{children}</main>
+            <div className="w-full flex flex-1 justify-center p-8 bg-light2 dark:bg-dark2">
+              <main className="w-full md:w-4/5 lg:w-2/3">{children}</main>
             </div>
 
             <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden">
-              <div className="flex items-center w-full mx-auto px-4 py-3 sm:px-6">
+              <div className="flex items-center w-full mx-auto px-4 py-3">
                 <nav className="w-full flex items-center justify-center gap-4">
                   {extLinks.map((item) => {
                     return (
