@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JSX } from "react";
 
 import PDF from "@/public/resume/pdf.svg";
 import {
   getResume,
+  ResumeConfig,
   BasicConfig,
   EducationConfig,
   ExperienceConfig,
@@ -74,7 +76,7 @@ export default function Home() {
                   >
                     {section}
                   </h2>
-                  {renderers[section](resume[section])}
+                  {renderSection(resume, section as keyof ResumeConfig)}
                 </section>
               );
             })}
@@ -85,13 +87,26 @@ export default function Home() {
   );
 }
 
-const renderers = {
+type Renderers = {
+  [K in keyof ResumeConfig]: (data: ResumeConfig[K]) => JSX.Element;
+};
+
+const renderers: Renderers = {
   basics: renderBasics,
   education: renderEducation,
   experience: renderExperience,
   projects: renderProjects,
   skills: renderSkills,
 };
+
+type ResumeKeys = keyof ResumeConfig;
+
+function renderSection<K extends ResumeKeys>(resume: ResumeConfig, key: K) {
+  const renderer = renderers[key];
+  const data = resume[key];
+
+  return renderer(data);
+}
 
 function renderBasic(k: string, v: string) {
   if (k === "phone") {
