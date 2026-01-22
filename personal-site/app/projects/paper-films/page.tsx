@@ -70,13 +70,7 @@ export default function Home() {
         </figure>
       </section>
       <section className="mt-6">
-        <figure className="flex flex-row gap-2">
-          <Image
-            className="w-1/2 h-auto shadow-2xl rounded-md"
-            src={Scanner}
-            alt="Film scanner"
-            priority
-          />
+        <figure className="flex flex-col sm:flex-row gap-2 items-center sm:items-start">
           <figcaption className="flex-1">
             <p>
               The first part of the preservation process begins with the
@@ -100,27 +94,44 @@ export default function Home() {
               films&apos; frame size, perforation locations, and condition.
             </p>
           </figcaption>
+          <Image
+            className="w-full sm:w-1/2 h-auto object-contain shadow-2xl rounded-md order-last sm:order-first"
+            src={Scanner}
+            alt="Film scanner"
+            priority
+          />
         </figure>
       </section>
       <section className="mt-6">
         <figure className="flex flex-col gap-2">
           <figcaption>
-            To accomplish this, the software uses a combination of filters and
-            rankings to determine what is a &apos;good frame&apos;. The first
-            thing that the software attempts to look for are perforations
-            (assuming that the film has them). All the films are recorded with a
-            specific color in the background that is not present in any films to
-            our knowledge; with this, we can filter out any frames that
-            don&apos;t contain perforations on both the top and bottom of the
-            frame. From here though, things get mildly trickier&mdash;due to the
-            often poor condition of the films, tears can occasionally be
-            misidentified as perforations. To reduce the occurrences of these in
-            the cleaned videos, we get the image gradients of all remaining
-            frames to identify horizontal lines. Based upon these, we score each
-            image on how much it matches what we expect a frame line to look
-            like. Then, all these frames can be extracted and have some light
-            stabilization applied before being sent to our film editors who add
-            title cards, intertitles, subtitles, and do the final color grading.
+            <p>
+              To accomplish this, the software uses a combination of filters and
+              rankings to determine what is a &apos;good frame&apos;. The first
+              thing that the software attempts to look for are perforations
+              (assuming that the film has them).
+            </p>
+            <p className="mt-2">
+              All the films are recorded with a specific color in the background
+              that is not present in any films to our knowledge; with this, we
+              can filter out any frames that don&apos;t contain perforations on
+              both the top and bottom of the frame.
+            </p>
+            <p className="mt-2">
+              From here though, things get mildly trickier&mdash;due to the
+              often poor condition of the films, tears can occasionally be
+              misidentified as perforations. To reduce the occurrences of these
+              in the cleaned videos, we get the image gradients of all remaining
+              frames to identify horizontal lines. Based upon these, we score
+              each image on how much it matches what we expect a frame line to
+              look like.
+            </p>
+            <p className="mt-2">
+              Then, all these frames can be extracted and have some light
+              stabilization applied before being sent to our film editors who
+              add title cards, intertitles, subtitles, and do the final color
+              grading.
+            </p>
           </figcaption>
           <Image
             className="w-full h-auto shadow-2xl rounded-md"
