@@ -43,5 +43,9 @@
         ]
       }
     }
+  },
+
+  "remoteEnv": {
+    "GPG_TTY": "/dev/tty"
   }
 }
