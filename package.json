@@ -5,7 +5,7 @@
     "gen-projects": "cd scripts && npm run gen-projects",
 
     "dev": "cd personal-site && npm run dev",
-    "build": "cd personal-site && npm run build",
+    "build": "npm run build-resume && npm run gen-projects && cd personal-site && npm run build",
     "lint": "cd personal-site && npm run lint"
   }
 }
