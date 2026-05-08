@@ -5,7 +5,7 @@ import ejs from "ejs";
 
 import { latexEscape } from "./latex-escape.js";
 
-const root = process.cwd();
+const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 
 const yamlFile = fs.readFileSync(path.join(root, "resume/resume.yaml"), "utf8");
 const data = YAML.parse(yamlFile);
