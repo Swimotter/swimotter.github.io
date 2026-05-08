@@ -1,6 +1,9 @@
 {
+  "type": "module",
   "scripts": {
     "build-resume": "cd scripts && npm run build-resume",
+    "gen-projects": "cd scripts && npm run gen-projects",
+
     "dev": "cd personal-site && npm run dev",
     "build": "cd personal-site && npm run build",
     "lint": "cd personal-site && npm run lint"

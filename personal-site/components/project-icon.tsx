@@ -1,4 +1,3 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
 import { HTMLAttributes } from "react";
@@ -13,7 +12,7 @@ export default function ProjectIcon({
   Readonly<{
     title: string;
     description?: string;
-    img: StaticImport;
+    img: string;
     page: string;
   }>) {
   return (
