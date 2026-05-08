@@ -1,5 +1,8 @@
 {
   "scripts": {
-    "build-resume": "cd scripts && npm run build-resume"
+    "build-resume": "cd scripts && npm run build-resume",
+    "dev": "cd personal-site && npm run dev",
+    "build": "cd personal-site && npm run build",
+    "lint": "cd personal-site && npm run lint"
   }
 }
