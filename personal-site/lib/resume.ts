@@ -56,7 +56,7 @@ export interface ResumeConfig {
 }
 
 export function getResume() {
-  const filePath = path.join(process.cwd(), "..", "resume", "resume.yaml");
+  const filePath = path.join(process.cwd(), "..", "content", "resume", "resume.yaml");
   const file = fs.readFileSync(filePath, "utf8");
   return yaml.load(file) as ResumeConfig;
 }

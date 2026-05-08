@@ -1,0 +1,10 @@
+# Generated resume files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.generated.tex
+*.pdf
+
+# Generated ts files
+*.generated.ts

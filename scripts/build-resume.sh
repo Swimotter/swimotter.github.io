@@ -2,7 +2,7 @@
 cd "$(dirname "$0")/.."
 
 # Compile resume
-latexmk -pdf -f -silent -interaction=nonstopmode -jobname=resume/jackson_rubiano_resume resume/resume.tex
+latexmk -pdf -f -silent -interaction=nonstopmode -jobname=content/resume/jackson_rubiano_resume content/resume/resume.generated.tex
 
 # Copy pdf to public folder
-cp resume/jackson_rubiano_resume.pdf personal-site/public/resume/
+cp content/resume/jackson_rubiano_resume.pdf personal-site/public/resume/
