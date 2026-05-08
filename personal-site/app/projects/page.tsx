@@ -26,6 +26,7 @@ export default function Home() {
       "
     >
       {projects
+        .filter((project) => project.public)
         .sort((a, b) => a.priority - b.priority)
         .map((project) => {
           return (
