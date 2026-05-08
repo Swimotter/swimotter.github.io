@@ -15,8 +15,9 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      - name: Install Root Dependencies
+      - name: Install Scripts Dependencies
         run: npm ci
+        working-directory: scripts
 
       - name: Install Site Dependencies
         run: npm ci
@@ -33,12 +34,8 @@ jobs:
             texlive-fonts-extra \
             latexmk
 
-      - name: Build Resume
-        run: npm run build-resume
-
       - name: Build Site
         run: npm run build
-        working-directory: personal-site
 
       - name: Disable Jekyll
         run: touch personal-site/out/.nojekyll
