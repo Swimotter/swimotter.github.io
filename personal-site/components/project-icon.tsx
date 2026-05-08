@@ -18,7 +18,13 @@ export default function ProjectIcon({
   return (
     <section className={`rounded-sm bg-light1 dark:bg-dark1 ${className}`}>
       <Link href={page}>
-        <Image className="rounded-tl-sm rounded-tr-sm" src={img} alt={title} />
+        <Image
+          className="rounded-tl-sm rounded-tr-sm"
+          src={img}
+          alt={title}
+          width={240}
+          height={320}
+        />
         <div className="p-4">
           <h2 className="text-3xl">{title}</h2>
           {description && (
