@@ -14,11 +14,12 @@ education:
     awards:
       - Dean's List
     coursework:
-      - Artificial Intelligence
+      - Data Science
+      - Applied Machine Learning
       - Systems Programming
       - Algorithm Design
       - Computer Networks
-      - Software Engineering
+      # - Software Engineering
 
 experience:
   - company: KALMUS Color Toolkit
@@ -28,9 +29,9 @@ experience:
     end_date: Present
     bullets:
       - Enhanced and maintained a Python program for film color analysis using NumPy, SciPy, and OpenCV
-      - Created a SQL database for hosting information provided to a front-end web interface
-      - Designed a pipeline to reduce manual steps and improve usability for non-technical researchers
-      - Converted faculty research requirements into usable tools
+      - Developed a SQL database to store information about film analyses
+      - Developed a website to allow dynamic film upload and analysis retrieval
+      - Interfaced with public APIs to retrieve film metadata
     link: https://github.com/KALMUS-Color-Toolkit/KALMUS/
 
   - company: The Japanese Paper Film Project
@@ -94,6 +95,7 @@ skills:
     - Python
     - Java
     - JavaScript
+    - TypeScript
     - WGSL
 
   technologies:
@@ -118,6 +120,8 @@ skills:
     - Scikit-Learn
     - Matplotlib
     - JavaFX
+    - React
+    - OR-Tools
 
   testing:
     - Pytest

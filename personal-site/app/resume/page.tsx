@@ -167,8 +167,8 @@ function renderEducation(education: EducationConfig[]) {
             </div>
 
             <div className="mt-2 text-sm">
-              {ed.gpa !== undefined && <span>GPA: {ed.gpa} </span>}
-              {ed.egpa !== undefined && <span>EGPA: {ed.egpa}</span>}
+              {ed.gpa !== undefined && <div>GPA: {ed.gpa}</div>}
+              {ed.egpa !== undefined && <div>Engineering GPA: {ed.egpa}</div>}
             </div>
 
             <div className="mt-2">
