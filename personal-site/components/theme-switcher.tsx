@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { ButtonHTMLAttributes } from "react";
-import "@/app/globals.css";
 
 import Sun from "@/public/common/sun.svg";
 import Moon from "@/public/common/moon.svg";
@@ -13,16 +12,17 @@ const ThemeSwitch = ({
   className,
 }: ButtonHTMLAttributes<HTMLButtonElement>) => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
   if (!mounted) {
     return (
       <button
-        className={`w-9 h-9 rounded-full ${className}`}
+        className={`p-2 rounded-full ${className ?? ""}`}
         aria-label="Toggle theme"
         disabled
         style={{ visibility: "hidden" }}
@@ -30,18 +30,13 @@ const ThemeSwitch = ({
     );
   }
 
-  const isDark = theme === "dark";
-
-  const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
-  };
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
-      onClick={toggleTheme}
-      className={`p-2 rounded-full bg-light2 dark:bg-dark2 hover:ring-2 ring-gray-500 transition-all ${className}`}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className={`p-2 rounded-full bg-light2 dark:bg-dark2 hover:ring-2 ring-gray-500 transition-all ${className ?? ""}`}
       aria-label="Toggle theme"
-      suppressHydrationWarning
     >
       <Image
         className="dark:invert"
