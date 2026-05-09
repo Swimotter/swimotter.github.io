@@ -3,9 +3,8 @@
   "scripts": {
     "build-resume": "cd scripts && npm run build-resume",
     "gen-projects": "cd scripts && npm run gen-projects",
-
     "dev": "npm run build && cd personal-site && npm run dev",
     "build": "npm run build-resume && npm run gen-projects && cd personal-site && npm run build",
-    "lint": "cd personal-site && npm run lint"
+    "lint": "(cd scripts && npm run lint) && (cd personal-site && npm run lint)"
   }
 }

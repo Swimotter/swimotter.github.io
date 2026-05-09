@@ -2,10 +2,12 @@
   "type": "module",
   "devDependencies": {
     "ejs": "^4.0.1",
-    "yaml": "^2.8.2"
+    "yaml": "^2.8.2",
+    "eslint": "^9"
   },
   "scripts": {
     "build-resume": "node gen-resume.js && bash build-resume.sh",
-    "gen-projects": "node gen-projects.js  && bash copy-projects.sh"
+    "gen-projects": "node gen-projects.js  && bash copy-projects.sh",
+    "lint": "eslint"
   }
 }
