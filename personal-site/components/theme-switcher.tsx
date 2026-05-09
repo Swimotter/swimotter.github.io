@@ -35,7 +35,7 @@ const ThemeSwitch = ({
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`p-2 rounded-full bg-light2 dark:bg-dark2 hover:ring-2 ring-gray-500 transition-all ${className ?? ""}`}
+      className={`p-2 rounded-full bg-foreground hover:ring-2 ring-gray-500 transition-all ${className ?? ""}`}
       aria-label="Toggle theme"
     >
       <Image

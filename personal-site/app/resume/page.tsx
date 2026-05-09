@@ -32,7 +32,7 @@ export default function Home() {
                 <li key={section}>
                   <a
                     href={`#${section}`}
-                    className="p-1.5 block w-full text-left capitalize transition-colors not-hover:font-semibold hover:text-cyan-800"
+                    className="hidden-link p-1.5 block w-full text-left capitalize transition-colors not-hover:font-semibold"
                   >
                     {section}
                   </a>
@@ -68,7 +68,7 @@ export default function Home() {
               return (
                 <section
                   key={section}
-                  className="mt-6 p-4 rounded-sm bg-light1 dark:bg-dark1"
+                  className="mt-6 p-4 rounded-sm bg-background"
                 >
                   <h2
                     id={section}
@@ -111,20 +111,20 @@ function renderSection<K extends ResumeKeys>(resume: ResumeConfig, key: K) {
 function renderBasic(k: string, v: string) {
   if (k === "phone") {
     return (
-      <a className="text-blue-500 hover:underline" href={`tel:${v}`}>
+      <a className="link link-hover" href={`tel:${v}`}>
         {v}
       </a>
     );
   } else if (k === "email") {
     return (
-      <a className="text-blue-500 hover:underline" href={`mailto:${v}`}>
+      <a className="link link-hover" href={`mailto:${v}`}>
         {v}
       </a>
     );
   } else if (k === "linkedin" || k === "github" || k === "website") {
     return (
       <a
-        className="text-blue-500 hover:underline"
+        className="link link-hover"
         href={`https://${v}`}
         target="_blank"
         rel="noopener noreferrer"
@@ -199,7 +199,7 @@ function renderReference(name: string, link?: string) {
   if (link) {
     return (
       <a
-        className="text-blue-500 hover:underline"
+        className="link link-hover"
         href={link}
         target="_blank"
         rel="noopener noreferrer"
@@ -283,7 +283,7 @@ function renderSkillCategory(name: string, items?: string[]) {
       <h3 className="font-medium capitalize">{name}</h3>
       <ul className="flex flex-wrap gap-2">
         {items.map((item) => (
-          <li key={item} className="px-2 py-1 rounded bg-light2 dark:bg-dark2">
+          <li key={item} className="px-2 py-1 rounded bg-foreground">
             {item}
           </li>
         ))}

@@ -26,7 +26,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="text-blue-500 hover:underline">
+              <span className="link link-hover">
                 The Japanese Paper Film Project
               </span>
             </a>{" "}

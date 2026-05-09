@@ -68,10 +68,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="w-full min-h-screen flex flex-col bg-light1 dark:bg-dark1 text-light3 dark:text-dark3">
-            <header className="sticky top-0 z-50 bg-light1 dark:bg-dark1">
+          <div className="w-full min-h-screen flex flex-col text-primary">
+            <header className="sticky top-0 z-50 bg-background">
               <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3">
-                <Link href="/" className="font-extrabold">
+                <Link href="/" className="hidden-link font-extrabold">
                   Jackson <span className="hidden sm:inline">(Swimotter)</span>{" "}
                   Rubiano
                 </Link>
@@ -87,8 +87,8 @@ export default function RootLayout({
                           className={`flex items-center transition-colors
                             ${
                               isActive
-                                ? "text-cyan-600 font-medium border-blue-600"
-                                : "hover:text-cyan-800 border-transparent"
+                                ? "link font-medium"
+                                : "hidden-link border-transparent"
                             }
                           `}
                         >
@@ -102,7 +102,7 @@ export default function RootLayout({
               </div>
             </header>
 
-            <div className="w-full flex flex-1 justify-center p-8 bg-light2 dark:bg-dark2">
+            <div className="w-full flex flex-1 justify-center p-8 bg-foreground">
               <main className="w-full md:w-4/5 xl:w-2/3">{children}</main>
             </div>
 

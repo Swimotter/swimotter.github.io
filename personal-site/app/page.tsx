@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-between">
+    <div className="flex flex-col items-center justify-between text-primary">
       <section className="mx-auto flex flex-col md:flex-row items-start gap-8">
         <div className="flex-1 text-left">
           <p className="text-2xl mb-4">

@@ -16,7 +16,7 @@ export default function ProjectIcon({
     page: string;
   }>) {
   return (
-    <section className={`rounded-sm bg-light1 dark:bg-dark1 ${className}`}>
+    <section className={`rounded-sm bg-background ${className}`}>
       <Link href={page}>
         <Image
           className="rounded-tl-sm rounded-tr-sm"
