@@ -16,7 +16,10 @@
 
 @layer base {
   h1 {
-    @apply font-display text-2xl font-bold;
+    @apply font-display text-4xl font-bold;
+  }
+  h2 {
+    @apply font-display text-2xl;
   }
 
   body {

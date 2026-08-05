@@ -15,14 +15,14 @@ const links = (pathname: string) =>
     const isActive = pathname === item.href;
 
     return (
-      <h1 key={item.name} className="font-normal">
+      <h2 key={item.name} className="font-normal">
         <Link
           href={item.href}
           className={cn(isActive && "font-medium underline")}
         >
           {item.name}
         </Link>
-      </h1>
+      </h2>
     );
   });
 
@@ -35,12 +35,12 @@ function Header() {
     <header className="bg-muted-background sticky top-0 z-50 md:border-b">
       <nav className="mx-auto flex flex-col md:w-4/5 xl:w-2/3">
         <div className="bg-muted-background flex flex-row justify-between p-5 not-md:border-b">
-          <h1>
+          <h2 className="font-bold">
             <Link href="/">
               Jackson <span className="hidden sm:inline">(Swimotter)</span>{" "}
               Rubiano
             </Link>
-          </h1>
+          </h2>
 
           {/* Links */}
           <div className="hidden gap-4 md:flex">{links(pathname)}</div>

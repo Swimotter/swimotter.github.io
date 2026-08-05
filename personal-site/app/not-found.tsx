@@ -1,28 +1,17 @@
-"use client";
+import type { Metadata } from "next";
+import Link from "next/link";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-
-const redirectTime = 3000;
+export const metadata: Metadata = {
+  title: "Not found",
+  description: "Page not found",
+};
 
 export default function NotFound() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push("/");
-    }, redirectTime);
-
-    return () => clearTimeout(timer);
-  });
-
   return (
-    <section className="flex flex-col items-center justify-center w-full">
-      <h1 className="text-4xl font-bold mb-4">404: Page Not Found</h1>
-      <p className="text-xl mb-6">
-        We couldn&apos;t find the requested page.
-        <br />
-        You will be redirected to the home page in 3 seconds.
+    <section className="mx-auto flex h-full flex-col justify-center gap-4 text-center">
+      <h1>Oops! We couldn&apos;t find that page.</h1>
+      <p className="text-blue-700 underline hover:text-blue-900">
+        <Link href="/">Maybe try looking around the home page?</Link>
       </p>
     </section>
   );
