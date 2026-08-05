@@ -1,138 +1,41 @@
 "use client";
 
-import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { ThemeProvider } from "next-themes";
-
-import ThemeSwitch from "@/components/theme-switcher";
 import "@/app/globals.css";
-import Mail from "@/public/common/mail.svg";
-import Github from "@/public/common/github.svg";
-import LinkedIn from "@/public/common/linkedin.svg";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+import localFont from "next/font/local";
+import { Inter } from "next/font/google";
+
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
+const cabinetGrotesk = localFont({
+  src: "../fonts/CabinetGrotesk-Variable.woff2",
+  variable: "--font-cabinet",
+  weight: "100 900",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
-
-const navItems = [
-  // { name: "Research", href: "/research" },
-  { name: "Projects", href: "/projects" },
-  { name: "Resume", href: "/resume" },
-];
-
-const extLinks = [
-  {
-    name: "mail",
-    svg: Mail,
-    href: "mailto:mr.jacksonrubiano@gmail.com",
-    alt: "Send me an email!",
-  },
-  {
-    name: "github",
-    svg: Github,
-    href: "https://github.com/swimotter",
-    alt: "Check out my GitHub!",
-  },
-  {
-    name: "linkedin",
-    svg: LinkedIn,
-    href: "https://linkedin.com/in/jackson-rubiano",
-    alt: "Connect with me on LinkedIn!",
-  },
-];
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
-
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <ThemeProvider
-          attribute="data-theme"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="w-full min-h-screen flex flex-col text-primary">
-            <header className="sticky top-0 z-50 bg-background">
-              <div className="flex items-center min-h-16 w-full mx-auto px-4 py-3">
-                <Link href="/" className="hidden-link font-extrabold">
-                  Jackson <span className="hidden sm:inline">(Swimotter)</span>{" "}
-                  Rubiano
-                </Link>
-                <div className="flex items-center gap-4 ml-auto justify-end">
-                  <nav className="flex items-center gap-4">
-                    {navItems.map((item) => {
-                      const isActive = pathname === item.href;
-
-                      return (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className={`flex items-center transition-colors
-                            ${
-                              isActive
-                                ? "link font-medium"
-                                : "hidden-link border-transparent"
-                            }
-                          `}
-                        >
-                          {item.name}
-                        </Link>
-                      );
-                    })}
-                  </nav>
-                  <ThemeSwitch />
-                </div>
-              </div>
-            </header>
-
-            <div className="w-full flex flex-1 justify-center p-8 bg-foreground">
-              <main className="w-full md:w-4/5 xl:w-2/3">{children}</main>
-            </div>
-
-            <footer className="bottom-0 z-50 max-h-17.5 overflow-hidden">
-              <div className="flex items-center w-full mx-auto px-4 py-3">
-                <nav className="w-full flex items-center justify-center gap-4">
-                  {extLinks.map((item) => {
-                    return (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          className="dark:invert"
-                          src={item.svg}
-                          alt={item.alt}
-                          width={50}
-                          height={50}
-                          priority
-                        />
-                      </a>
-                    );
-                  })}
-                </nav>
-              </div>
-            </footer>
+    <html lang="en" className={`${cabinetGrotesk.variable} ${inter.variable}`}>
+      <body>
+        <div className="flex min-h-screen w-full flex-col">
+          <Header />
+          <div className="mx-auto flex flex-1 p-5 md:w-4/5 xl:w-2/3">
+            <main>{children}</main>
           </div>
-        </ThemeProvider>
+          <Footer />
+        </div>
       </body>
     </html>
   );
