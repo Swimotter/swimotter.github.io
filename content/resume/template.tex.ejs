@@ -175,15 +175,15 @@
   %---------%
 
   \documentTitle{<%- latexEscape(basics.name) %>}{
-    \href{tel:9258909065}{
+    \href{tel:<%- basics.phone %>}{
       \raisebox{-0.05\height} \faPhone\ <%- latexEscape(basics.phone) %>} ~|~
-    \href{mailto:jtr029@bucknell.edu}{
+    \href{mailto:<%- basics.email %>}{
       \raisebox{-0.15\height} \faEnvelope\ <%- latexEscape(basics.email) %>} ~|~
-    \href{https://linkedin.com/in/jackson-rubiano/}{
+    \href{https://<%- basics.linkedin %>}{
       \raisebox{-0.15\height} \faLinkedin\ <%- latexEscape(basics.linkedin) %>} ~|~
-    \href{https://github.com/Swimotter}{
+    \href{https://<%- basics.github %>}{
       \raisebox{-0.15\height} \faGithub\ <%- latexEscape(basics.github) %>} ~|~
-    \href{https://jacksonrubiano.com}{
+    \href{https://<%- basics.website %>}{
       \raisebox{-0.15\height} \faGithub\ <%- latexEscape(basics.website) %>}
   }
 
