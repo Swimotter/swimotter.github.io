@@ -15,14 +15,14 @@ const links = (pathname: string) =>
     const isActive = pathname === item.href;
 
     return (
-      <h3 key={item.name}>
+      <h1 key={item.name} className="font-normal">
         <Link
           href={item.href}
           className={cn(isActive && "font-medium underline")}
         >
           {item.name}
         </Link>
-      </h3>
+      </h1>
     );
   });
 
