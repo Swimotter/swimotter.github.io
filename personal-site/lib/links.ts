@@ -1,4 +1,4 @@
-import Mail from "@/public/common/mail.svg";
+import { LucideIcon, Mail } from "lucide-react";
 import Github from "@/public/common/github.svg";
 import LinkedIn from "@/public/common/linkedin.svg";
 
@@ -7,7 +7,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 type Link = {
   name: string;
   href: string;
-  image?: StaticImport;
+  image?: StaticImport | LucideIcon;
   alt?: string;
 };
 
