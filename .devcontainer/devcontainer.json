@@ -16,7 +16,7 @@
   "forwardPorts": [3000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "cd personal-site && npm install",
+  "postCreateCommand": "cd scripts && npm install && cd ../personal-site && npm install && cd .. && npm run dev",
 
   // Configure tool-specific properties.
   // "customizations": {},
