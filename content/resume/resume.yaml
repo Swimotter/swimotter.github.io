@@ -59,7 +59,7 @@ projects:
       - Addressed difficulties integrating WebGPU for VR while maintaining near real-time rendering
     link: https://github.com/tj-free/VRCraft.github.io
 
-  - name: Deep Learning for ALL Blood Cell Classification
+  - name: ALL Blood Cell Classification
     location: Bucknell University
     title:
       - Developer
