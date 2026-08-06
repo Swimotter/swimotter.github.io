@@ -33,8 +33,8 @@ function Header() {
 
   return (
     <header className="bg-muted-background sticky top-0 z-50 md:border-b">
-      <nav className="mx-auto flex flex-col md:w-4/5 xl:w-2/3">
-        <div className="bg-muted-background flex flex-row justify-between p-5 not-md:border-b">
+      <nav className="mx-auto flex w-full flex-col md:w-4/5 xl:w-2/3">
+        <div className="bg-muted-background flex flex-row justify-between p-4 not-md:border-b">
           <h2 className="font-bold">
             <Link href="/">
               Jackson <span className="hidden sm:inline">(Swimotter)</span>{" "}
@@ -59,7 +59,7 @@ function Header() {
         </div>
         <div
           className={cn(
-            "bg-muted-background absolute top-full -z-10 flex w-full flex-col gap-4 border-b p-5 md:hidden",
+            "bg-muted-background absolute top-full -z-10 flex w-full flex-col gap-4 border-b p-4 md:hidden",
             "transform transition-transform duration-300 ease-in-out",
             menuActive
               ? "pointer-events-auto translate-y-0"
