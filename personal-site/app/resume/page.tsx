@@ -1,306 +1,287 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import { JSX } from "react";
+import { getResume } from "@/lib/resume";
 
-import PDF from "@/public/resume/pdf.svg";
 import {
-  getResume,
-  ResumeConfig,
-  BasicConfig,
-  EducationConfig,
-  ExperienceConfig,
-  ProjectConfig,
-  SkillConfig,
-} from "@/lib/resume";
+  Resume,
+  ResumeContent,
+  ResumeEntry,
+  ResumeBulletItem,
+  ResumeBullets,
+  ResumeEntryDates,
+  ResumeHeader,
+  ResumeLabel,
+  ResumeEntryRole,
+  ResumeEntryTitle,
+  ResumeGrid,
+  ResumeGridItem,
+  ResumeGroup,
+  ResumeNav,
+  ResumeSection,
+  ResumeSectionTitle,
+  ResumeFact,
+  ResumeFactLabel,
+  ResumeFactValue,
+  ResumeTagItem,
+  ResumeTags,
+  ResumeTitle,
+} from "@/components/ui/resume";
+
+import { FileDown } from "lucide-react";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Resume | Jackson (Swimotter) Rubiano",
   description: "Jackson (Swimotter) Rubiano's Resume",
 };
 
-// FIXME: Page doesn't scroll to top if loading from a page that is scrolled down
+const resume = getResume();
+
+const sections = Object.keys(resume).map((key) => ({
+  id: key,
+  label: key.charAt(0).toUpperCase() + key.slice(1),
+}));
+
 export default function Home() {
-  const resume = getResume();
-
   return (
-    <div className="w-full flex flex-row">
-      <div className="hidden sm:block sm:w-1/4">
-        <nav className="sticky top-24 flex flex-col text-xs">
-          <ul className="flex flex-col">
-            {Object.keys(resume).map((section) => {
-              return (
-                <li key={section}>
-                  <a
-                    href={`#${section}`}
-                    className="hidden-link p-1.5 block w-full text-left capitalize transition-colors not-hover:font-semibold"
-                  >
-                    {section}
+    <Resume sections={sections}>
+      <ResumeNav sections={sections} />
+      <ResumeContent>
+        <ResumeHeader className="flex-row items-center">
+          <ResumeTitle>Resume</ResumeTitle>
+          <a
+            download="jackson_rubiano_resume.pdf"
+            href="/resume/jackson_rubiano_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FileDown size={50} />
+          </a>
+        </ResumeHeader>
+
+        <ResumeSection id="basics">
+          <ResumeSectionTitle>Basics</ResumeSectionTitle>
+          <ResumeGrid>
+            <ResumeGridItem>
+              <ResumeFact>
+                <ResumeFactLabel>Name</ResumeFactLabel>
+                <ResumeFactValue>{resume.basics.name}</ResumeFactValue>
+              </ResumeFact>
+            </ResumeGridItem>
+            <ResumeGridItem>
+              <ResumeFact>
+                <ResumeFactLabel>Email</ResumeFactLabel>
+                <ResumeFactValue>
+                  <a href={`mailto:${resume.basics.email}`}>
+                    {resume.basics.email}
                   </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
-      <div className="w-full sm:w-3/4">
-        <article>
-          <header className="flex flex-row items-center">
-            <h1 className="text-4xl">Resume</h1>
-            <a
-              className="ml-auto"
-              download="jackson_rubiano_resume.pdf"
-              href="/resume/jackson_rubiano_resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className="dark:invert"
-                src={PDF}
-                alt={"Download PDF"}
-                width={50}
-                height={50}
-                priority
-              />
-            </a>
-          </header>
-          <div>
-            {Object.keys(resume).map((section) => {
-              return (
-                <section
-                  key={section}
-                  className="mt-6 p-4 rounded-sm bg-background"
-                >
-                  <h2
-                    id={section}
-                    className="scroll-mt-24 text-lg font-semibold capitalize"
+                </ResumeFactValue>
+              </ResumeFact>
+            </ResumeGridItem>
+            <ResumeGridItem>
+              <ResumeFact>
+                <ResumeFactLabel>LinkedIn</ResumeFactLabel>
+                <ResumeFactValue>
+                  <a
+                    href={`https://${resume.basics.linkedin}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {section}
-                  </h2>
-                  {renderSection(resume, section as keyof ResumeConfig)}
-                </section>
-              );
-            })}
-          </div>
-        </article>
-      </div>
-    </div>
-  );
-}
+                    {resume.basics.linkedin}
+                  </a>
+                </ResumeFactValue>
+              </ResumeFact>
+            </ResumeGridItem>
+            <ResumeGridItem>
+              <ResumeFact>
+                <ResumeFactLabel>GitHub</ResumeFactLabel>
+                <ResumeFactValue>
+                  <a
+                    href={`https://${resume.basics.github}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {resume.basics.github}
+                  </a>
+                </ResumeFactValue>
+              </ResumeFact>
+            </ResumeGridItem>
+            <ResumeGridItem>
+              <ResumeFact>
+                <ResumeFactLabel>Website</ResumeFactLabel>
+                <ResumeFactValue>
+                  <a
+                    href={`https://${resume.basics.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {resume.basics.website}
+                  </a>
+                </ResumeFactValue>
+              </ResumeFact>
+            </ResumeGridItem>
+          </ResumeGrid>
+        </ResumeSection>
 
-type Renderers = {
-  [K in keyof ResumeConfig]: (data: ResumeConfig[K]) => JSX.Element;
-};
+        <ResumeSection id="education">
+          <ResumeSectionTitle>Education</ResumeSectionTitle>
+          {resume.education.map((education) => (
+            <ResumeEntry key={education.school + education.degree}>
+              <ResumeGroup>
+                <ResumeHeader>
+                  <ResumeEntryTitle>{education.school}</ResumeEntryTitle>
+                  <ResumeEntryDates>{education.graduation}</ResumeEntryDates>
+                </ResumeHeader>
 
-const renderers: Renderers = {
-  basics: renderBasics,
-  education: renderEducation,
-  experience: renderExperience,
-  projects: renderProjects,
-  skills: renderSkills,
-};
+                <ResumeEntryRole>{education.degree}</ResumeEntryRole>
+              </ResumeGroup>
 
-type ResumeKeys = keyof ResumeConfig;
+              <ResumeGroup>
+                <ResumeLabel>GPA: {education.gpa}</ResumeLabel>
+                <ResumeLabel>Engineering GPA: {education.egpa}</ResumeLabel>
+              </ResumeGroup>
 
-function renderSection<K extends ResumeKeys>(resume: ResumeConfig, key: K) {
-  const renderer = renderers[key];
-  const data = resume[key];
+              <ResumeGroup>
+                <ResumeLabel>Awards</ResumeLabel>
+                <ResumeBullets>
+                  {education.awards.map((award) => (
+                    <ResumeBulletItem key={award}>{award}</ResumeBulletItem>
+                  ))}
+                </ResumeBullets>
+              </ResumeGroup>
 
-  return renderer(data);
-}
+              <ResumeGroup>
+                <ResumeLabel>Coursework</ResumeLabel>
+                <ResumeBullets>
+                  {education.coursework.map((course) => (
+                    <ResumeBulletItem key={course}>{course}</ResumeBulletItem>
+                  ))}
+                </ResumeBullets>
+              </ResumeGroup>
+            </ResumeEntry>
+          ))}
+        </ResumeSection>
 
-function renderBasic(k: string, v: string) {
-  if (k === "phone") {
-    return (
-      <a className="link link-hover" href={`tel:${v}`}>
-        {v}
-      </a>
-    );
-  } else if (k === "email") {
-    return (
-      <a className="link link-hover" href={`mailto:${v}`}>
-        {v}
-      </a>
-    );
-  } else if (k === "linkedin" || k === "github" || k === "website") {
-    return (
-      <a
-        className="link link-hover"
-        href={`https://${v}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {v}
-      </a>
-    );
-  } else {
-    return <>{v}</>;
-  }
-}
+        <ResumeSection id="experience">
+          <ResumeSectionTitle>Experience</ResumeSectionTitle>
+          {resume.experience.map((experience) => (
+            <ResumeEntry key={experience.company + experience.title}>
+              <ResumeGroup>
+                <ResumeHeader>
+                  <ResumeEntryTitle>
+                    {experience.link ? (
+                      <a
+                        href={experience.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {experience.company}
+                      </a>
+                    ) : (
+                      experience.company
+                    )}
+                  </ResumeEntryTitle>
+                  <ResumeEntryDates>
+                    {experience.start_date} — {experience.end_date}
+                  </ResumeEntryDates>
+                </ResumeHeader>
 
-function renderBasics(basics: BasicConfig) {
-  return (
-    <>
-      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {Object.entries(basics).map(([k, v]) => (
-          <div key={k}>
-            <dt className="font-medium capitalize">{k}</dt>
-            <dd>{renderBasic(k, v)}</dd>
-          </div>
-        ))}
-      </dl>
-    </>
-  );
-}
+                <ResumeEntryRole>
+                  {Array.isArray(experience.title)
+                    ? experience.title.join(", ")
+                    : experience.title}
+                </ResumeEntryRole>
+              </ResumeGroup>
 
-function renderEducation(education: EducationConfig[]) {
-  return (
-    <>
-      <div className="space-y-4">
-        {education.map((ed) => (
-          <div key={ed.school} className="border rounded p-4">
-            <div className="flex justify-between">
-              <div>
-                <div className="font-bold">{ed.school}</div>
-                <div className="text-sm">{ed.degree}</div>
-              </div>
-              <div className="text-sm">{ed.graduation}</div>
-            </div>
-
-            <div className="mt-2 text-sm">
-              {ed.gpa !== undefined && <div>GPA: {ed.gpa}</div>}
-              {ed.egpa !== undefined && <div>Engineering GPA: {ed.egpa}</div>}
-            </div>
-
-            <div className="mt-2">
-              <div className="font-medium">Awards</div>
-              <ul className="list-disc ml-6">
-                {ed.awards.map((a) => (
-                  <li key={a}>{a}</li>
+              <ResumeBullets>
+                {experience.bullets.map((bullet) => (
+                  <ResumeBulletItem key={bullet}>{bullet}</ResumeBulletItem>
                 ))}
-              </ul>
-            </div>
+              </ResumeBullets>
+            </ResumeEntry>
+          ))}
+        </ResumeSection>
 
-            <div className="mt-2">
-              <div className="font-medium">Coursework</div>
-              <ul className="list-disc ml-6">
-                {ed.coursework.map((c) => (
-                  <li key={c}>{c}</li>
+        <ResumeSection id="projects">
+          <ResumeSectionTitle>Projects</ResumeSectionTitle>
+          {resume.projects.map((project) => (
+            <ResumeEntry key={project.name}>
+              <ResumeGroup>
+                <ResumeHeader>
+                  <ResumeEntryTitle>
+                    {project.link ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project.name}
+                      </a>
+                    ) : (
+                      project.name
+                    )}
+                  </ResumeEntryTitle>
+                  <ResumeEntryDates>
+                    {project.start_date} — {project.end_date}
+                  </ResumeEntryDates>
+                </ResumeHeader>
+
+                <ResumeEntryRole>
+                  {Array.isArray(project.title)
+                    ? project.title.join(", ")
+                    : project.title}
+                </ResumeEntryRole>
+              </ResumeGroup>
+
+              <ResumeBullets>
+                {project.bullets.map((bullet) => (
+                  <ResumeBulletItem key={bullet}>{bullet}</ResumeBulletItem>
                 ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
+              </ResumeBullets>
+            </ResumeEntry>
+          ))}
+        </ResumeSection>
 
-function renderReference(name: string, link?: string) {
-  if (link) {
-    return (
-      <a
-        className="link link-hover"
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {name}
-      </a>
-    );
-  } else {
-    return <>{name}</>;
-  }
-}
+        <ResumeSection id="skills">
+          <ResumeSectionTitle>Skills</ResumeSectionTitle>
+          <ResumeGrid>
+            <ResumeGridItem>
+              <ResumeLabel className="font-semibold">Languages</ResumeLabel>
+              <ResumeTags>
+                {resume.skills.languages.map((language) => (
+                  <ResumeTagItem key={language}>{language}</ResumeTagItem>
+                ))}
+              </ResumeTags>
+            </ResumeGridItem>
 
-function renderTitle(title: string | string[]) {
-  const titles = Array.isArray(title) ? title : [title];
-  return titles.join(", ");
-}
+            <ResumeGridItem>
+              <ResumeLabel className="font-semibold">Technologies</ResumeLabel>
+              <ResumeTags>
+                {resume.skills.technologies.map((technology) => (
+                  <ResumeTagItem key={technology}>{technology}</ResumeTagItem>
+                ))}
+              </ResumeTags>
+            </ResumeGridItem>
 
-function renderExperience(experience: ExperienceConfig[]) {
-  return (
-    <div className="space-y-4">
-      {experience.map((job) => (
-        <div key={job.company + job.title} className="border rounded p-4">
-          <div className="flex justify-between">
-            <div>
-              <div className="font-bold">{renderTitle(job.title)}</div>
-              <div className="text-sm">
-                {renderReference(job.company, job.link)}
-              </div>
-              <div className="text-sm">{job.location}</div>
-            </div>
-            <div className="text-sm">
-              {job.start_date} — {job.end_date}
-            </div>
-          </div>
+            <ResumeGridItem>
+              <ResumeLabel className="font-semibold">Libraries</ResumeLabel>
+              <ResumeTags>
+                {resume.skills.libraries.map((library) => (
+                  <ResumeTagItem key={library}>{library}</ResumeTagItem>
+                ))}
+              </ResumeTags>
+            </ResumeGridItem>
 
-          <ul className="mt-2 list-disc ml-6">
-            {job.bullets.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function renderProjects(projects: ProjectConfig[]) {
-  return (
-    <div className="space-y-4">
-      {projects.map((project) => (
-        <div key={project.name} className="border rounded p-4">
-          <div className="flex justify-between">
-            <div>
-              <div className="font-bold">
-                {renderReference(project.name, project.link)}
-              </div>
-              <div className="text-sm">{renderTitle(project.title)}</div>
-              <div className="text-sm">{project.location}</div>
-            </div>
-            <div className="text-sm">
-              {project.start_date} — {project.end_date}
-            </div>
-          </div>
-
-          <ul className="mt-2 list-disc ml-6">
-            {project.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function renderSkillCategory(name: string, items?: string[]) {
-  if (!items || items.length === 0) return null;
-
-  return (
-    <div key={name}>
-      <h3 className="font-medium capitalize">{name}</h3>
-      <ul className="flex flex-wrap gap-2">
-        {items.map((item) => (
-          <li key={item} className="px-2 py-1 rounded bg-foreground">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function renderSkills(skills: SkillConfig) {
-  return (
-    <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {renderSkillCategory("languages", skills.languages)}
-        {renderSkillCategory("technologies", skills.technologies)}
-        {renderSkillCategory("libraries", skills.libraries)}
-        {renderSkillCategory("testing", skills.testing)}
-      </div>
-    </>
+            <ResumeGridItem>
+              <ResumeLabel className="font-semibold">Testing</ResumeLabel>
+              <ResumeTags>
+                {resume.skills.testing.map((test) => (
+                  <ResumeTagItem key={test}>{test}</ResumeTagItem>
+                ))}
+              </ResumeTags>
+            </ResumeGridItem>
+          </ResumeGrid>
+        </ResumeSection>
+      </ResumeContent>
+    </Resume>
   );
 }
