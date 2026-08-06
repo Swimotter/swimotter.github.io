@@ -41,7 +41,7 @@ jobs:
       - name: Build Site
         run: npm run build
         env:
-          GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
+          NEXT_PUBLIC_GTM_ID: ${{ vars.GTM_CONTAINER_ID }}
 
       - name: Disable Jekyll
         run: touch personal-site/out/.nojekyll
