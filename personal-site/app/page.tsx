@@ -34,14 +34,16 @@ export default function Home() {
           interactions between particles.
         </p>
       </div>
-      <Image
-        className="w-xs rounded-md shadow-2xl lg:w-sm xl:w-lg"
-        src={Profile}
-        alt="Profile Picture"
-        width={800}
-        height={800}
-        priority
-      />
+      <div className="relative aspect-square w-xs lg:w-sm xl:w-lg">
+        <Image
+          className="rounded-md object-cover shadow-2xl"
+          src={Profile}
+          alt="Profile Picture"
+          width={800}
+          height={800}
+          priority
+        />
+      </div>
     </section>
   );
 }
