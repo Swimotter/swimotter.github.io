@@ -1,8 +1,9 @@
 "use client";
 
+import { download_resume_analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-import React from "react";
+import React, { useState } from "react";
 
 const SCROLL_OFFSET = 120;
 
@@ -192,6 +193,42 @@ function ResumeNav({
 function ResumeTitle({ className, ...props }: React.ComponentProps<"h1">) {
   return (
     <h1 data-slot="resume-title" className={cn("", className)} {...props} />
+  );
+}
+
+function ResumeDownload({ onClick, ...props }: React.ComponentProps<"a">) {
+  const [isTracking, setIsTracking] = useState<boolean>(false);
+
+  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Prevent spam clicks sending multiple analytics
+    if (isTracking) {
+      e.preventDefault();
+      return;
+    }
+
+    try {
+      setIsTracking(true);
+
+      await download_resume_analytics();
+    } catch (err) {
+      console.error("Analytics failed:", err);
+    } finally {
+      setIsTracking(false);
+    }
+
+    // Call any user supplied onClick
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={handleClick}
+      {...props}
+    />
   );
 }
 
@@ -388,6 +425,7 @@ export {
   Resume,
   ResumeNav,
   ResumeTitle,
+  ResumeDownload,
   ResumeHeader,
   ResumeContent,
   ResumeSection,

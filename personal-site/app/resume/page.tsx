@@ -23,6 +23,7 @@ import {
   ResumeTagItem,
   ResumeTags,
   ResumeTitle,
+  ResumeDownload,
 } from "@/components/ui/resume";
 
 import { FileDown } from "lucide-react";
@@ -48,14 +49,12 @@ export default function Home() {
       <ResumeContent>
         <ResumeHeader className="flex-row items-center">
           <ResumeTitle>Resume</ResumeTitle>
-          <a
+          <ResumeDownload
             download="jackson_rubiano_resume.pdf"
             href="/resume/jackson_rubiano_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <FileDown size={50} />
-          </a>
+          </ResumeDownload>
         </ResumeHeader>
 
         <ResumeSection id="basics">
