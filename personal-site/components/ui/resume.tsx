@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 import React, { useState } from "react";
 
-const SCROLL_OFFSET = 120;
+const SCROLL_OFFSET = 140;
 
 interface SectionInfo {
   id: string;
@@ -158,7 +158,7 @@ function ResumeNav({
   };
 
   return (
-    <div className="sticky top-17 left-0 z-10 -mx-[50vw] w-screen px-4 sm:top-22 sm:left-auto sm:mx-0 sm:w-90 sm:px-0">
+    <div className="sticky top-20.5 left-0 z-10 -mx-[50vw] w-screen px-4 sm:top-26 sm:left-auto sm:mx-0 sm:w-90 sm:px-0">
       <nav
         data-slot="resume-nav"
         className={cn(
@@ -262,7 +262,7 @@ function ResumeSection({
       id={id}
       data-slot="resume-section"
       className={cn(
-        "bg-surface flex scroll-mt-30 flex-col gap-4 rounded-md border border-solid border-[#e7e5e4] p-4 sm:scroll-mt-19",
+        "bg-surface flex scroll-mt-34 flex-col gap-4 rounded-md border border-solid border-[#e7e5e4] p-4 sm:scroll-mt-24",
         className,
       )}
       {...props}

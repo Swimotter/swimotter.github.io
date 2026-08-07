@@ -34,7 +34,7 @@ export default function Home() {
           interactions between particles.
         </p>
       </div>
-      <div className="relative aspect-square w-xs lg:w-sm xl:w-lg">
+      <div className="relative aspect-square w-2xs md:w-xs lg:w-sm xl:w-lg">
         <Image
           className="rounded-md object-cover shadow-2xl"
           src={Profile}

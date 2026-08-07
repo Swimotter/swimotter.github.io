@@ -32,9 +32,9 @@ function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-muted-background sticky top-0 z-50 md:border-b">
-      <nav className="mx-auto flex w-full flex-col md:w-4/5 xl:w-2/3">
-        <div className="bg-muted-background flex flex-row justify-between p-4 not-md:border-b">
+    <header className="bg-muted-background sticky top-0 z-50 h-20.5 md:border-b">
+      <nav className="mx-auto flex h-full w-full flex-col justify-center md:w-4/5 xl:w-2/3">
+        <div className="bg-muted-background flex h-full flex-row items-center justify-between p-4 not-md:border-b">
           <h2 className="font-bold">
             <Link href="/">
               Jackson <span className="hidden sm:inline">(Swimotter)</span>{" "}

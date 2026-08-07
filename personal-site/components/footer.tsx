@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="bg-muted-background bottom-0 border-t">
+    <footer className="bg-muted-background bottom-0 h-20.5 border-t">
       <nav className="mx-auto flex w-full justify-center gap-4 p-4 md:w-4/5 xl:w-2/3">
         {externalLinks
           .filter((item) => item.image && item.alt)
