@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const links = (pathname: string) =>
   headerLinks.map((item) => {
@@ -26,13 +26,19 @@ const links = (pathname: string) =>
     );
   });
 
-function Header() {
+function Header({ className, ...props }: React.ComponentProps<"header">) {
   const [menuActive, setMenuActive] = useState<boolean>(false);
 
   const pathname = usePathname();
 
   return (
-    <header className="bg-muted-background sticky top-0 z-50 h-20.5 md:border-b">
+    <header
+      className={cn(
+        "bg-muted-background sticky top-0 z-50 h-20.5 md:border-b",
+        className,
+      )}
+      {...props}
+    >
       <nav className="mx-auto flex h-full w-full flex-col justify-center md:w-4/5 xl:w-2/3">
         <div className="bg-muted-background flex h-full flex-row items-center justify-between p-4 not-md:border-b">
           <h2 className="font-bold">
@@ -72,7 +78,7 @@ function Header() {
       {/* Close header on click outside*/}
       {menuActive && (
         <div
-          className="fixed inset-0 -z-50 md:hidden"
+          className="fixed inset-0 -z-20 md:hidden"
           onClick={() => setMenuActive(false)}
         />
       )}

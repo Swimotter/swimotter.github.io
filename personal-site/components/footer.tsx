@@ -1,12 +1,16 @@
 import { externalLinks } from "@/lib/links";
+import { cn } from "@/lib/utils";
 
 import { LucideIcon } from "lucide-react";
 
 import Image from "next/image";
 
-function Footer() {
+function Footer({ className, ...props }: React.ComponentProps<"footer">) {
   return (
-    <footer className="bg-muted-background bottom-0 h-20.5 border-t">
+    <footer
+      className={cn("bg-muted-background bottom-0 h-20.5 border-t", className)}
+      {...props}
+    >
       <nav className="mx-auto flex w-full justify-center gap-4 p-4 md:w-4/5 xl:w-2/3">
         {externalLinks
           .filter((item) => item.image && item.alt)
