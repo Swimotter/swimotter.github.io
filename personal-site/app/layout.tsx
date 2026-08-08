@@ -29,16 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cabinetGrotesk.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${cabinetGrotesk.variable} ${inter.variable} scroll-smooth`}
+    >
       <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTM_ID}`} />
-      <body>
-        <div className="flex min-h-screen w-full flex-col">
-          <Header />
-          <div className="mx-auto flex w-full flex-1 justify-center p-4 md:w-4/5 xl:w-2/3">
-            <main>{children}</main>
-          </div>
-          <Footer />
-        </div>
+      <body className="bg-background m-0 flex min-h-[calc(100vh-1px)] flex-col font-sans">
+        <Header />
+        <main className="mx-auto grow p-4 md:w-4/5 xl:w-2/3">{children}</main>
+        <Footer />
       </body>
     </html>
   );

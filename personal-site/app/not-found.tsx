@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="mx-auto flex h-full flex-col justify-center gap-4 text-center">
+    <section className="flex min-h-[calc(100vh-197px)] grow flex-col items-center justify-center gap-4">
       <h1>Oops! We couldn&apos;t find that page.</h1>
       <p className="text-blue-700 underline hover:text-blue-900">
         <Link href="/">Maybe try looking around the home page?</Link>

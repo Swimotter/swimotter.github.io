@@ -28,12 +28,4 @@
   h3 {
     @apply font-display text-xl;
   }
-
-  body {
-    @apply bg-background font-sans;
-  }
-
-  html {
-    @apply scroll-smooth;
-  }
 }
